@@ -15,6 +15,15 @@ operations
  addRental()
  getName()
 
+ getTotalCharge():Real
+  begin
+   declare sum:Real, ch:Real;
+   for charge in self.charges do
+    ch:=charge.chVal;
+    sum:= sum + ch;
+  end
+ end
+
  Statement()
   begin
    declare aCharge:Charge, sm:Movie, ch:Real, t:String;
@@ -131,8 +140,8 @@ constraints
 --You may remove these constraints in your design. They are here
 --just as examples.
 
-context Customer
- inv maxRental:numRen <= 10
- inv agreement:rentals->size = numRen
- inv rentals:rentals->notEmpty
- inv daysRented:rentals->select(daysRented > 3)->notEmpty
+--context Customer
+-- inv maxRental:numRen <= 10
+-- inv agreement:rentals->size = numRen
+-- inv rentals:rentals->notEmpty
+-- inv daysRented:rentals->select(daysRented > 3)->notEmpty
