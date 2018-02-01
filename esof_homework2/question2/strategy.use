@@ -1,0 +1,7 @@
+--This is a USE model that has embedded SOIL operations to model a generic strategy patern design pattern
+
+model StrategyPattern
+
+--classes
+--associations
+--constraints
