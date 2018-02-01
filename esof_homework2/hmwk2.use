@@ -52,8 +52,8 @@ operations
 
   getCharge():Real
    begin
-    declare wrkCh:Real, m:Movie, pc:PriceCode, dy:Integer;
-    m:= self.getMovie();
+    declare  m:Movie, wrkCh:Real, pc:PriceCode, dy:Integer;
+    m:=self.movie;
     dy:=self.daysRented;
     pc:=m.getPriceCode();
 
