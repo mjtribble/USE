@@ -3,5 +3,94 @@
 model StrategyPattern
 
 --classes
+class Duck
+attributes
+	quackBehavior : IQuackBehavior
+operations
+	display()
+	performQuack()
+		begin
+			-- (THIS ISN'T WORKING)self.quackBehavior.quack()
+		end
+	setQuackBehavior(qb:IQuackBehavior)
+		begin
+			self.quackBehavior := qb
+		end
+end
+
+class Mallard < Duck
+attributes -- None
+operations
+	display()
+end
+
+class DecoyDuck < Duck
+attributes -- None
+operations
+	display()
+end
+
+class RubberDuck < Duck
+attributes -- None
+operations
+	display()
+end
+
+class IQuackBehavior
+attributes -- None
+operations
+	quack()
+end
+
+class Quack < IQuackBehavior
+attributes -- None
+operations
+	quack()
+end
+
+class Squeak < IQuackBehavior
+attributes -- None
+operations
+	quack()
+end
+
+class Mute < IQuackBehavior
+attributes -- None
+operations
+	quack()
+end
+
 --associations
+
+association DuckHasAQuackBehavior between
+	Duck[0..*] role duck
+	IQuackBehavior[1] role quack
+end
+
 --constraints
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
