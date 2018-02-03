@@ -55,4 +55,43 @@ operations
 end
 
 --associations
+
+association DuckHasAQuackBehavior between
+	Duck[0..*] role duck
+	IQuackBehavior[1] role quack
+end
+
+
+
+
+
+
+
+
 --constraints
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
