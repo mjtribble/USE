@@ -10,11 +10,11 @@ operations
 	display()
 	performQuack()
 		begin
-			quackBehavior.quack()
+			-- (THIS ISN'T WORKING)self.quackBehavior.quack()
 		end
 	setQuackBehavior(qb:IQuackBehavior)
 		begin
-			quackBehavior = qb
+			self.quackBehavior := qb
 		end
 end
 
