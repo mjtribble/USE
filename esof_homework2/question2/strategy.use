@@ -9,7 +9,13 @@ attributes
 operations
 	display()
 	performQuack()
-	setQuackBehavior()
+		begin
+			quackBehavior.quack()
+		end
+	setQuackBehavior(qb:IQuackBehavior)
+		begin
+			quackBehavior = qb
+		end
 end
 
 class Mallard < Duck
@@ -60,13 +66,6 @@ association DuckHasAQuackBehavior between
 	Duck[0..*] role duck
 	IQuackBehavior[1] role quack
 end
-
-
-
-
-
-
-
 
 --constraints
 
