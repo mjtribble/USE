@@ -8,11 +8,12 @@ attributes
 	quackBehavior : IQuackBehavior
 	flyBehavior : IFlyBehavior
 	location : String
+	sound : String
 operations
 	display()
 	performQuack()
 		begin
-			self.quackBehavior.quack()
+			self.sound:=self.quackBehavior.quack()
 		end
 	setQuackBehavior(qb:IQuackBehavior)
 		begin
@@ -47,34 +48,41 @@ operations
 end
 
 class IQuackBehavior
-attributes -- None
+attributes
+	--None
 operations
-	quack()
+	quack():String
 		begin
 		end
 end
 
 class Quack < IQuackBehavior
-attributes -- None
+attributes
+	--None
 operations
-	quack()
+	quack():String
 		begin
+			result:='quack';
 		end
 end
 
 class Squeak < IQuackBehavior
-attributes -- None
+attributes
+	--None
 operations
-	quack()
+	quack():String
 		begin
+			result:='squeak';
 		end
 end
 
 class Mute < IQuackBehavior
-attributes -- None
+attributes
+	--None
 operations
-	quack()
+	quack():String
 		begin
+			result:='NoNoise';
 		end
 end
 
@@ -116,29 +124,3 @@ association DuckHasAFlyBehavior between
 end
 
 --constraints
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
