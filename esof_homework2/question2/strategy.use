@@ -6,6 +6,8 @@ model StrategyPattern
 class Duck
 attributes
 	quackBehavior : IQuackBehavior
+	flyBehavior : IFlyBehavior
+	location : String
 	sound : String
 operations
 	display()
@@ -16,6 +18,14 @@ operations
 	setQuackBehavior(qb:IQuackBehavior)
 		begin
 			self.quackBehavior := qb
+		end
+	performfly()
+		begin
+			self.location := self.flyBehavior.fly()
+		end
+	setFlyBehavior(fb:IFlyBehavior)
+		begin
+			self.flyBehavior := fb
 		end
 end
 
@@ -76,11 +86,41 @@ operations
 		end
 end
 
---associations
+class IFlyBehavior
+attributes-- None
+operations
+	fly() : String
+		begin
+		end
+end
 
+class FlyWithWings < IFlyBehavior
+attributes -- None
+operations
+	fly() : String
+		begin
+			result := 'sky';
+		end
+end
+
+class FlyNotSoMuch < IFlyBehavior
+attributes -- None
+operations
+	fly() : String
+		begin
+			result := 'ground';
+		end
+end
+
+--associations
 association DuckHasAQuackBehavior between
 	Duck[0..*] role duck
 	IQuackBehavior[1] role quack
+end
+
+association DuckHasAFlyBehavior between
+	Duck[0..*] role duck
+	IFlyBehavior[1] role fly
 end
 
 --constraints
