@@ -6,11 +6,12 @@ model StrategyPattern
 class Duck
 attributes
 	quackBehavior : IQuackBehavior
+	sound : String
 operations
 	display()
 	performQuack()
 		begin
-			-- (THIS ISN'T WORKING)self.quackBehavior.quack()
+			self.sound:=self.quackBehavior.quack()
 		end
 	setQuackBehavior(qb:IQuackBehavior)
 		begin
@@ -37,27 +38,42 @@ operations
 end
 
 class IQuackBehavior
-attributes -- None
+attributes
+	--None
 operations
-	quack()
+	quack():String
+		begin
+		end
 end
 
 class Quack < IQuackBehavior
-attributes -- None
+attributes
+	--None
 operations
-	quack()
+	quack():String
+		begin
+			result:='quack';
+		end
 end
 
 class Squeak < IQuackBehavior
-attributes -- None
+attributes
+	--None
 operations
-	quack()
+	quack():String
+		begin
+			result:='squeak';
+		end
 end
 
 class Mute < IQuackBehavior
-attributes -- None
+attributes
+	--None
 operations
-	quack()
+	quack():String
+		begin
+			result:='NoNoise';
+		end
 end
 
 --associations
@@ -68,29 +84,3 @@ association DuckHasAQuackBehavior between
 end
 
 --constraints
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
