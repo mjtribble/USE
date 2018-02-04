@@ -91,7 +91,7 @@ attributes -- None
 operations
 	fly() : String
 		begin
-			result := "sky";
+			result := 'sky';
 		end
 end
 
@@ -100,7 +100,7 @@ attributes -- None
 operations
 	fly() : String
 		begin
-			result := "ground";
+			result := 'ground';
 		end
 end
 

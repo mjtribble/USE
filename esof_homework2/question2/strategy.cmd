@@ -33,7 +33,7 @@
 !insert (r1,s1) into DuckHasAQuackBehavior
 
 !insert (m1,f1) into DuckHasAFlyBehavior
-!insert (d1,nf1) into DuckHasAQuackBehavior
-!insert (r1,nf1) into DuckHasAQuackBehavior
+!insert (d1,nf1) into DuckHasAFlyBehavior
+!insert (r1,nf1) into DuckHasAFlyBehavior
 
 --run model
