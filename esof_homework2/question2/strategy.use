@@ -82,7 +82,7 @@ attributes
 operations
 	quack():String
 		begin
-			result:='NoNoise';
+			--result:='NoNoise';
 		end
 end
 
@@ -123,4 +123,12 @@ association DuckHasAFlyBehavior between
 	IFlyBehavior[1] role fly
 end
 
+--Not working currently
 --constraints
+
+--context Duck::performQuack()
+--	post soundMade: self.sound = undefined
+--context Mallard::performQuack()
+--	post soundMade: self.sound = 'quack'
+--context DecoyDuck:
+--	post soundMade: self.sound = undefined --hasn't changed since it can't make a sound
