@@ -13,7 +13,7 @@ operations
 	show()
 	performBehavior1()
 		begin
-			self.state1:=self.behavior1.do()
+			self.state1:=self.behavior1.do();
 		end
 	setBehavior1(b1:IBehavior1)
 		begin
@@ -21,11 +21,11 @@ operations
 		end
 	performBehavior2()
 		begin
-			self.state2 := self.behavior2.do()
+			self.state2 := self.behavior2.do();
 		end
 	setBehavior2(b2:IBehavior2)
 		begin
-			self.behavior2 := b2
+			self.behavior2 := b2;
 		end
 end
 
@@ -48,32 +48,21 @@ operations
 end
 
 class IBehavior1
-attributes
-	--None
+attributes--None
 operations
 	do():String
-		begin
-		end
 end
 
 class Concrete1Behavior1 < IBehavior1
-attributes
-	--None
+attributes--None
 operations
 	do():String
-		begin
-			result:='c1';
-		end
 end
 
 class Concrete2Behavior1 < IBehavior1
-attributes
-	--None
+attributes --None
 operations
 	do():String
-		begin
-			result:='c2';
-		end
 end
 
 class Concrete3Behavior1 < IBehavior1
@@ -81,35 +70,24 @@ attributes
 	--None
 operations
 	do():String
-		begin
-			result:='c3';
-		end
 end
 
 class IBehavior2
 attributes-- None
 operations
 	do() : String
-		begin
-		end
 end
 
 class Concrete1Behavior2 < IBehavior2
 attributes -- None
 operations
 	do() : String
-		begin
-			result := 'c1';
-		end
 end
 
-class Concrete1Behavior2 < IBehavior2
+class Concrete2Behavior2 < IBehavior2
 attributes -- None
 operations
 	do() : String
-		begin
-			result := 'c2';
-		end
 end
 
 --associations
@@ -124,3 +102,22 @@ association ContextHasAnIBehavior2 between
 end
 
 --constraints
+
+--context IBehavior1::do()
+--pre :
+--post :
+
+--context IBehavior2::do()
+--pre:
+--post:
+
+
+
+
+
+
+
+
+
+
+
