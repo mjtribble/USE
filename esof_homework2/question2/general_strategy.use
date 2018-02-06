@@ -1,0 +1,123 @@
+--This is a USE model that has embedded SOIL operations to model a generic strategy patern design pattern
+
+model GeneralStrategyPattern
+
+--classes
+class AbstractContext
+attributes
+	behavior1 : IBehavior1
+	behavior2 : IBehavior2
+	state1 : String
+	state2 : String
+operations
+	show()
+	performBehavior1()
+		begin
+			self.state1:=self.behavior1.do();
+		end
+	setBehavior1(b1:IBehavior1)
+		begin
+			self.behavior1 := b1
+		end
+	performBehavior2()
+		begin
+			self.state2 := self.behavior2.do();
+		end
+	setBehavior2(b2:IBehavior2)
+		begin
+			self.behavior2 := b2;
+		end
+end
+
+class ConcreteContext1 < AbstractContext
+attributes -- None
+operations
+	show()
+end
+
+class ConcreteContext2 < AbstractContext
+attributes -- None
+operations
+	show()
+end
+
+class ConcreteContext3 < AbstractContext
+attributes -- None
+operations
+	show()
+end
+
+class IBehavior1
+attributes--None
+operations
+	do():String
+end
+
+class Concrete1Behavior1 < IBehavior1
+attributes--None
+operations
+	do():String
+end
+
+class Concrete2Behavior1 < IBehavior1
+attributes --None
+operations
+	do():String
+end
+
+class Concrete3Behavior1 < IBehavior1
+attributes
+	--None
+operations
+	do():String
+end
+
+class IBehavior2
+attributes-- None
+operations
+	do() : String
+end
+
+class Concrete1Behavior2 < IBehavior2
+attributes -- None
+operations
+	do() : String
+end
+
+class Concrete2Behavior2 < IBehavior2
+attributes -- None
+operations
+	do() : String
+end
+
+--associations
+association ContextHasAnIBehavior1 between
+	Context[0..*] role context
+	IBehavior1[1] role behave1
+end
+
+association ContextHasAnIBehavior2 between
+	Context[0..*] role context
+	IBehavior2[1] role behave2
+end
+
+--constraints
+
+--context IBehavior1::do()
+--pre :
+--post :
+
+--context IBehavior2::do()
+--pre:
+--post:
+
+
+
+
+
+
+
+
+
+
+
