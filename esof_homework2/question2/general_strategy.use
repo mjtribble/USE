@@ -13,7 +13,7 @@ operations
 	show()
 	performBehavior1()
 		begin
-			self.state1:=self.behavior1.do();
+			self.state1:=self.behavior1.doAction()
 		end
 	setBehavior1(b1:IBehavior1)
 		begin
@@ -21,7 +21,7 @@ operations
 		end
 	performBehavior2()
 		begin
-			self.state2 := self.behavior2.do();
+			self.state2 := self.behavior2.doAction()
 		end
 	setBehavior2(b2:IBehavior2)
 		begin
@@ -36,68 +36,90 @@ operations
 end
 
 class ConcreteContext2 < AbstractContext
-attributes -- None
+attributes
+	--None
 operations
 	show()
 end
 
 class ConcreteContext3 < AbstractContext
-attributes -- None
+attributes
+	--None
 operations
 	show()
 end
 
 class IBehavior1
-attributes--None
+attributes
+	--None
 operations
-	do():String
+	doAction():String
+		begin
+		end
 end
 
 class Concrete1Behavior1 < IBehavior1
-attributes--None
+attributes
+	--None
 operations
-	do():String
+	doAction():String
+		begin
+		end
 end
 
 class Concrete2Behavior1 < IBehavior1
-attributes --None
+attributes
+	--None
 operations
-	do():String
+	doAction():String
+		begin
+		end
 end
 
 class Concrete3Behavior1 < IBehavior1
 attributes
 	--None
 operations
-	do():String
+	doAction():String
+		begin
+		end
 end
 
 class IBehavior2
-attributes-- None
+attributes
+	--None
 operations
-	do() : String
+	doAction():String
+		begin
+		end
 end
 
 class Concrete1Behavior2 < IBehavior2
-attributes -- None
+attributes
+	--None
 operations
-	do() : String
+	doAction():String
+		begin
+		end
 end
 
 class Concrete2Behavior2 < IBehavior2
-attributes -- None
+attributes
+	--None
 operations
-	do() : String
+	doAction():String
+		begin
+		end
 end
 
 --associations
-association ContextHasAnIBehavior1 between
-	Context[0..*] role context
+association AbstractContextHasAnIBehavior1 between
+	AbstractContext[0..*] role abstractObj
 	IBehavior1[1] role behave1
 end
 
-association ContextHasAnIBehavior2 between
-	Context[0..*] role context
+association AbstractContextHasAnIBehavior2 between
+	AbstractContext[0..*] role abstractObj
 	IBehavior2[1] role behave2
 end
 
@@ -110,14 +132,3 @@ end
 --context IBehavior2::do()
 --pre:
 --post:
-
-
-
-
-
-
-
-
-
-
-
