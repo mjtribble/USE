@@ -7,13 +7,13 @@ class AbstractContext
 attributes
 	behavior1 : IBehavior1
 	behavior2 : IBehavior2
-	state1 : String
-	state2 : String
+	attribute1 : String
+	attribute2 : String
 operations
 	show()
 	performBehavior1()
 		begin
-			self.state1:=self.behavior1.doAction()
+			self.attribute1:=self.behavior1.doAction()
 		end
 	setBehavior1(b1:IBehavior1)
 		begin
@@ -21,7 +21,7 @@ operations
 		end
 	performBehavior2()
 		begin
-			self.state2 := self.behavior2.doAction()
+			self.attribute2 := self.behavior2.doAction()
 		end
 	setBehavior2(b2:IBehavior2)
 		begin
@@ -53,6 +53,9 @@ class IBehavior1
 attributes
 	--None
 operations
+	setAction(s:String)
+		begin
+		end
 	doAction():String
 		begin
 		end
@@ -60,28 +63,43 @@ end
 
 class Concrete1Behavior1 < IBehavior1
 attributes
-	--None
+	attributeToBeSet:String
 operations
+	setAction(s:String)
+		begin
+			self.attributeToBeSet:=s
+		end
 	doAction():String
 		begin
+			result:=self.attributeToBeSet;
 		end
 end
 
 class Concrete2Behavior1 < IBehavior1
 attributes
-	--None
+	attributeToBeSet:String
 operations
+	setAction(s:String)
+		begin
+			self.attributeToBeSet:=s
+		end
 	doAction():String
 		begin
+			result:=self.attributeToBeSet;
 		end
 end
 
 class Concrete3Behavior1 < IBehavior1
 attributes
-	--None
+	attributeToBeSet:String
 operations
+	setAction(s:String)
+		begin
+			self.attributeToBeSet:=s
+		end
 	doAction():String
 		begin
+			result:=self.attributeToBeSet;
 		end
 end
 
@@ -123,12 +141,16 @@ association AbstractContextHasAnIBehavior2 between
 	IBehavior2[1] role behave2
 end
 
---constraints
+constraints
 
---context IBehavior1::do()
---pre :
---post :
+context AbstractContext::setBehavior1(b1:IBehavior1)
+post: behavior1=b1
 
---context IBehavior2::do()
---pre:
---post:
+context AbstractContext::setBehavior2(b2:IBehavior2)
+post: behavior2=b2
+
+context IBehavior1::doAction():String
+post: abstractObj.attribute1->notEmpty
+
+context IBehavior2::doAction():String
+post: abstractObj.attribute2->notEmpty
