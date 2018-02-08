@@ -22,8 +22,11 @@
 !create fly:Concrete1Behavior2
 !create noFly:Concrete2Behavior2
 
---set variables
+--create Actions of Fly Objects
+!fly.setAction('fly')
+!noFly.setAction('ground')
 
+--set variables
 !set mallard.behavior1 := quack
 !set decoy.behavior1 := mute
 !set rubberDuck.behavior1 := squeak
