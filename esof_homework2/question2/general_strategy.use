@@ -107,6 +107,9 @@ class IBehavior2
 attributes
 	--None
 operations
+	setAction(s:String)
+		begin
+		end
 	doAction():String
 		begin
 		end
@@ -114,19 +117,29 @@ end
 
 class Concrete1Behavior2 < IBehavior2
 attributes
-	--None
+	attributeToBeSet:String
 operations
+	setAction(s:String)
+		begin
+			self.attributeToBeSet:=s
+		end
 	doAction():String
 		begin
+			result:=self.attributeToBeSet;
 		end
 end
 
 class Concrete2Behavior2 < IBehavior2
 attributes
-	--None
+	attributeToBeSet:String
 operations
+	setAction(s:String)
+		begin
+			self.attributeToBeSet:=s
+		end
 	doAction():String
 		begin
+			result:=self.attributeToBeSet;
 		end
 end
 
@@ -144,10 +157,10 @@ end
 constraints
 
 context AbstractContext::setBehavior1(b1:IBehavior1)
-post: behavior1=b1
+post: self.behavior1.oclIsTypeOf(IBehavior1)
 
 context AbstractContext::setBehavior2(b2:IBehavior2)
-post: behavior2=b2
+post: self.behavior2.oclIsTypeOf(IBehavior2)
 
 context IBehavior1::doAction():String
 post: abstractObj.attribute1->notEmpty
