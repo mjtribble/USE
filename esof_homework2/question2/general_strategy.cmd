@@ -2,47 +2,61 @@
 --Sets up associations between them
 --Calls the {insert main method name}
 
---create Duck Objects
+--create Context/Duck Objects
 !create mallard:ConcreteContext1
 !create decoy:ConcreteContext2
 !create rubberDuck:ConcreteContext3
 
+--create StrategyA/Quack Objects
+!create squeak:Concrete1StrategyA
+!create quack:Concrete2StrategyA
+!create mute:Concrete3StrategyA
 
---create Quack Objects
-!create squeak:Concrete1Behavior1
-!create quack:Concrete2Behavior1
-!create mute:Concrete3Behavior1
-
---create Actions of Quack objects
-!squeak.setAction('squeak')
-!quack.setAction('quack')
-!mute.setAction('NoNoise')
-
---create Fly Objects
-!create fly:Concrete1Behavior2
-!create noFly:Concrete2Behavior2
-
---create Actions of Fly Objects
-!fly.setAction('fly')
-!noFly.setAction('ground')
+--create StrategyB/Fly Objects
+!create fly:Concrete1StrategyB
+!create noFly:Concrete2StrategyB
 
 --set variables
-!set mallard.behavior1 := quack
-!set decoy.behavior1 := mute
-!set rubberDuck.behavior1 := squeak
+!mallard.strategyA := quack
+!decoy.strategyA := mute
+!rubberDuck.strategyA := squeak
 
-!set mallard.behavior2 := fly
-!set decoy.behavior2 := noFly
-!set rubberDuck.behavior2 := noFly
+!mallard.strategyB := fly
+!decoy.strategyB := noFly
+!rubberDuck.strategyB := noFly
+
+!mallard.resultA := ''
+!decoy.resultA := ''
+!rubberDuck.resultA := ''
+
+!mallard.resultB := ''
+!decoy.resultB := ''
+!rubberDuck.resultB := ''
+
+!squeak.result := 'song'
+!quack.result := 'song'
+!mute.result := 'silence'
+
+!fly.result := 'air'
+!noFly.result := 'ground'
+
+
+--Duck Actions
+!mallard.performStrategyA()
+!mallard.performStrategyB()
+!decoy.performStrategyA()
+!decoy.performStrategyB()
+!rubberDuck.performStrategyA()
+!rubberDuck.performStrategyB()
 
 --insert associations
 
-!insert (mallard,quack) into AbstractContextHasAnIBehavior1
-!insert (decoy,mute) into AbstractContextHasAnIBehavior1
-!insert (rubberDuck,squeak) into AbstractContextHasAnIBehavior1
+!insert (mallard,quack) into AbstractContextHasAnIStrategyA
+!insert (decoy,mute) into AbstractContextHasAnIStrategyA
+!insert (rubberDuck,squeak) into AbstractContextHasAnIStrategyA
 
-!insert (mallard,fly) into AbstractContextHasAnIBehavior2
-!insert (decoy,noFly) into AbstractContextHasAnIBehavior2
-!insert (rubberDuck,noFly) into AbstractContextHasAnIBehavior2
+!insert (mallard,fly) into AbstractContextHasAnIStrategyB
+!insert (decoy,noFly) into AbstractContextHasAnIStrategyB
+!insert (rubberDuck,noFly) into AbstractContextHasAnIStrategyB
 
 --run model

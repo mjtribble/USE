@@ -3,29 +3,29 @@
 model GeneralStrategyPattern
 
 --classes
-class AbstractContext
+abstract class AbstractContext
 attributes
-	behavior1 : IBehavior1
-	behavior2 : IBehavior2
-	attribute1 : String
-	attribute2 : String
+	strategyA : IStrategyA
+	strategyB : IStrategyB
+  resultA:String init : ' '
+  resultB:String init : ' '
 operations
 	show()
-	performBehavior1()
+	performStrategyA()
 		begin
-			self.attribute1:=self.behavior1.doAction()
+			self.resultA:=self.strategyA.doAction()
 		end
-	setBehavior1(b1:IBehavior1)
+	setStrategyA(s1:IStrategyA)
 		begin
-			self.behavior1 := b1
+			self.strategyA := s1
 		end
-	performBehavior2()
+	performStrategyB()
 		begin
-			self.attribute2 := self.behavior2.doAction()
+			self.resultB := self.strategyB.doAction()
 		end
-	setBehavior2(b2:IBehavior2)
+	setStrategyB(s2:IStrategyB)
 		begin
-			self.behavior2 := b2;
+			self.strategyB := s2;
 		end
 end
 
@@ -36,20 +36,72 @@ operations
 end
 
 class ConcreteContext2 < AbstractContext
-attributes
-	--None
+attributes	--None
 operations
 	show()
 end
 
 class ConcreteContext3 < AbstractContext
-attributes
-	--None
+attributes	--None
 operations
 	show()
 end
 
-class IBehavior1
+abstract class IStrategyA
+attributes	--None
+operations
+	setAction(s:String)
+		begin
+		end
+	doAction():String
+		begin
+		end
+end
+
+class Concrete1StrategyA < IStrategyA
+attributes
+  result:String
+operations
+	setAction(s:String)
+		begin
+			self.result:=s
+		end
+	doAction():String
+		begin
+			result:=self.result;
+
+		end
+end
+
+class Concrete2StrategyA < IStrategyA
+attributes
+	result:String
+operations
+	setAction(s:String)
+		begin
+			self.result:=s
+		end
+	doAction():String
+		begin
+			result:=self.result;
+		end
+end
+
+class Concrete3StrategyA < IStrategyA
+attributes
+	result:String
+operations
+	setAction(s:String)
+		begin
+			self.result:=s
+		end
+	doAction():String
+		begin
+			result:=self.result;
+		end
+end
+
+abstract class IStrategyB
 attributes
 	--None
 operations
@@ -61,109 +113,55 @@ operations
 		end
 end
 
-class Concrete1Behavior1 < IBehavior1
+class Concrete1StrategyB < IStrategyB
 attributes
-	attributeToBeSet:String
+	result:String
 operations
 	setAction(s:String)
 		begin
-			self.attributeToBeSet:=s
+			self.result:=s
 		end
 	doAction():String
 		begin
-			result:=self.attributeToBeSet;
+			result:=self.result;
 		end
 end
 
-class Concrete2Behavior1 < IBehavior1
+class Concrete2StrategyB < IStrategyB
 attributes
-	attributeToBeSet:String
+	result:String
 operations
 	setAction(s:String)
 		begin
-			self.attributeToBeSet:=s
+			self.result:=s
 		end
 	doAction():String
 		begin
-			result:=self.attributeToBeSet;
-		end
-end
-
-class Concrete3Behavior1 < IBehavior1
-attributes
-	attributeToBeSet:String
-operations
-	setAction(s:String)
-		begin
-			self.attributeToBeSet:=s
-		end
-	doAction():String
-		begin
-			result:=self.attributeToBeSet;
-		end
-end
-
-class IBehavior2
-attributes
-	--None
-operations
-	setAction(s:String)
-		begin
-		end
-	doAction():String
-		begin
-		end
-end
-
-class Concrete1Behavior2 < IBehavior2
-attributes
-	attributeToBeSet:String
-operations
-	setAction(s:String)
-		begin
-			self.attributeToBeSet:=s
-		end
-	doAction():String
-		begin
-			result:=self.attributeToBeSet;
-		end
-end
-
-class Concrete2Behavior2 < IBehavior2
-attributes
-	attributeToBeSet:String
-operations
-	setAction(s:String)
-		begin
-			self.attributeToBeSet:=s
-		end
-	doAction():String
-		begin
-			result:=self.attributeToBeSet;
+			result:=self.result;
 		end
 end
 
 --associations
-association AbstractContextHasAnIBehavior1 between
+association AbstractContextHasAnIStrategyA between
 	AbstractContext[0..*] role abstractObj
-	IBehavior1[1] role behave1
+	IStrategyA[1] role strategyA
 end
 
-association AbstractContextHasAnIBehavior2 between
+association AbstractContextHasAnIStrategyB between
 	AbstractContext[0..*] role abstractObj
-	IBehavior2[1] role behave2
+	IStrategyB[1] role strategyB
 end
 
 constraints
 
-context AbstractContext::setBehavior1(b1:IBehavior1)
-post: self.behavior1.oclIsTypeOf(IBehavior1)
+context AbstractContext::setStrategyA(s1:IStrategyA)
+post: self.strategyA.oclIsTypeOf(IStrategyA)
 
-context AbstractContext::setBehavior2(b2:IBehavior2)
-post: self.behavior2.oclIsTypeOf(IBehavior2)
+context AbstractContext::setStrategyB(s2:IStrategyB)
+post: self.strategyB.oclIsTypeOf(IStrategyB)
 
-context IBehavior1::doAction():String
-post: abstractObj.attribute1->notEmpty
+context IStrategyA::doAction():String
+post: abstractObj.resultA->notEmpty
 
-context IBehavior2::doAction():String
-post: abstractObj.attribute2->notEmpty
+context IStrategyB::doAction():String
+post: abstractObj.resultB->notEmpty
