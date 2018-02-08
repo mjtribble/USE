@@ -50,9 +50,6 @@ end
 abstract class IStrategyA
 attributes	--None
 operations
-	setAction(s:String)
-		begin
-		end
 	doAction():String
 		begin
 		end
@@ -62,10 +59,6 @@ class Concrete1StrategyA < IStrategyA
 attributes
   result:String
 operations
-	setAction(s:String)
-		begin
-			self.result:=s
-		end
 	doAction():String
 		begin
 			result:=self.result;
@@ -77,10 +70,6 @@ class Concrete2StrategyA < IStrategyA
 attributes
 	result:String
 operations
-	setAction(s:String)
-		begin
-			self.result:=s
-		end
 	doAction():String
 		begin
 			result:=self.result;
@@ -91,10 +80,6 @@ class Concrete3StrategyA < IStrategyA
 attributes
 	result:String
 operations
-	setAction(s:String)
-		begin
-			self.result:=s
-		end
 	doAction():String
 		begin
 			result:=self.result;
@@ -105,9 +90,6 @@ abstract class IStrategyB
 attributes
 	--None
 operations
-	setAction(s:String)
-		begin
-		end
 	doAction():String
 		begin
 		end
@@ -117,10 +99,6 @@ class Concrete1StrategyB < IStrategyB
 attributes
 	result:String
 operations
-	setAction(s:String)
-		begin
-			self.result:=s
-		end
 	doAction():String
 		begin
 			result:=self.result;
@@ -131,10 +109,6 @@ class Concrete2StrategyB < IStrategyB
 attributes
 	result:String
 operations
-	setAction(s:String)
-		begin
-			self.result:=s
-		end
 	doAction():String
 		begin
 			result:=self.result;
