@@ -29,12 +29,12 @@
 !decoy.resultB := ''
 !rubberDuck.resultB := ''
 
-!squeak.result := 'song'
-!quack.result := 'song'
-!mute.result := 'silence'
+!squeak.action_result := 'song'
+!quack.action_result := 'song'
+!mute.action_result := 'silence'
 
-!fly.result := 'air'
-!noFly.result := 'ground'
+!fly.action_result := 'air'
+!noFly.action_result := 'ground'
 
 --Insert Associations
 

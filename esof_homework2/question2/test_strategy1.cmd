@@ -7,14 +7,6 @@
 !decoy.performStrategyA()
 !decoy.performStrategyB()
 !rubberDuck.performStrategyA()
-
-!mallard.setStrategyA(squeak)
-!decoy.setStrategyB(fly)
-!rubberDuck.setStrategyA(mute)
-
-!mallard.performStrategyA()
-!decoy.performStrategyB()
-!rubberDuck.performStrategyA()
-
+!rubberDuck.performStrategyB()
 
 --run model

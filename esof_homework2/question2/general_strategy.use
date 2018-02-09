@@ -51,38 +51,37 @@ abstract class IStrategyA
 attributes	--None
 operations
 	doAction():String
-		begin
-		end
+    begin
+    end
 end
 
 class Concrete1StrategyA < IStrategyA
 attributes
-  result:String
+  action_result:String
 operations
 	doAction():String
 		begin
-			result:=self.result;
-
+			result:=self.action_result;
 		end
 end
 
 class Concrete2StrategyA < IStrategyA
 attributes
-	result:String
+  action_result:String
 operations
 	doAction():String
 		begin
-			result:=self.result;
+			result:=self.action_result;
 		end
 end
 
 class Concrete3StrategyA < IStrategyA
 attributes
-	result:String
+	action_result:String
 operations
 	doAction():String
 		begin
-			result:=self.result;
+			result:=self.action_result;
 		end
 end
 
@@ -91,51 +90,68 @@ attributes
 	--None
 operations
 	doAction():String
-		begin
-		end
+    begin
+    end
 end
 
 class Concrete1StrategyB < IStrategyB
 attributes
-	result:String
+	action_result:String
 operations
 	doAction():String
 		begin
-			result:=self.result;
+			result:=self.action_result;
 		end
 end
 
 class Concrete2StrategyB < IStrategyB
 attributes
-	result:String
+	action_result:String
 operations
 	doAction():String
 		begin
-			result:=self.result;
+			result:=self.action_result;
 		end
 end
 
 --associations
 association AbstractContextHasAnIStrategyA between
 	AbstractContext[0..*] role abstractObj
-	IStrategyA[1] role strategyA
+	IStrategyA[1] role sA
 end
 
 association AbstractContextHasAnIStrategyB between
 	AbstractContext[0..*] role abstractObj
-	IStrategyB[1] role strategyB
+	IStrategyB[1] role sB
 end
 
+--constraints
 constraints
-
 context AbstractContext::setStrategyA(s1:IStrategyA)
-post: self.strategyA.oclIsTypeOf(IStrategyA)
+post: self.strategyA.isDefined()
 
 context AbstractContext::setStrategyB(s2:IStrategyB)
-post: self.strategyB.oclIsTypeOf(IStrategyB)
+post: self.strategyB.isDefined()
 
-context IStrategyA::doAction():String
-post: abstractObj.resultA->notEmpty
+context AbstractContext::performStrategyA()
+pre: self.strategyA.isDefined()
+post: self.resultA <>''
 
-context IStrategyB::doAction():String
-post: abstractObj.resultB->notEmpty
+context AbstractContext::performStrategyB()
+pre: self.strategyB.isDefined()
+post: self.resultB <> ''
+
+--context Concrete1StrategyA::doAction():String
+--post: self.action_result = abstractObj.resultA->any(x | x = self.action_result)
+
+--context Concrete2StrategyA::doAction():String
+--post: self.action_result = abstractObj.resultA->any(x | x = self.action_result)
+
+--context Concrete3StrategyA::doAction():String
+--post: self.action_result = abstractObj.resultA->any(x | x = self.action_result)
+
+--context Concrete1StrategyB::doAction():String
+--post: self.action_result = abstractObj.resultB->any(x | x = self.action_result)
+
+--context Concrete2StrategyB::doAction():String
+--post: self.action_result = abstractObj.resultB->any(x | x = self.action_result)
