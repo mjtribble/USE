@@ -13,24 +13,24 @@
     <node id="Concrete1StrategyB" sizeCalculated="true" type="Class">
         <name>Concrete1StrategyB</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>478.1312805655789</x>
-            <y>410.6849068627577</y>
+            <x>487.1312805655789</x>
+            <y>369.6849068627577</y>
         </strategy>
         <hidden>false</hidden>
     </node>
     <node id="Concrete1StrategyA" sizeCalculated="true" type="Class">
         <name>Concrete1StrategyA</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>407.209336379753</x>
-            <y>170.0</y>
+            <x>444.209336379753</x>
+            <y>141.0</y>
         </strategy>
         <hidden>false</hidden>
     </node>
     <node id="Concrete3StrategyA" sizeCalculated="true" type="Class">
         <name>Concrete3StrategyA</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>756.5019040170055</x>
-            <y>165.0</y>
+            <x>724.5019040170055</x>
+            <y>143.0</y>
         </strategy>
         <hidden>false</hidden>
     </node>
@@ -53,8 +53,8 @@
     <node id="Concrete2StrategyB" sizeCalculated="true" type="Class">
         <name>Concrete2StrategyB</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>654.7290999919429</x>
-            <y>409.0</y>
+            <x>646.7290999919429</x>
+            <y>370.0</y>
         </strategy>
         <hidden>false</hidden>
     </node>
@@ -69,8 +69,8 @@
     <node id="Concrete2StrategyA" sizeCalculated="true" type="Class">
         <name>Concrete2StrategyA</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>580.7466209277952</x>
-            <y>167.71203351650558</y>
+            <x>586.7466209277952</x>
+            <y>143.71203351650558</y>
         </strategy>
         <hidden>false</hidden>
     </node>
@@ -85,16 +85,16 @@
     <node id="IStrategyB" sizeCalculated="true" type="Class">
         <name>IStrategyB</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>579.0012087342905</x>
-            <y>288.49501629008444</y>
+            <x>574.0012087342905</x>
+            <y>281.49501629008444</y>
         </strategy>
         <hidden>false</hidden>
     </node>
     <node id="AbstractContext" sizeCalculated="true" type="Class">
         <name>AbstractContext</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>87.37177881981711</x>
-            <y>133.41884967433452</y>
+            <x>97.37177881981711</x>
+            <y>16.418849674334524</y>
         </strategy>
         <hidden>false</hidden>
     </node>
@@ -104,13 +104,45 @@
         <name>AbstractContextHasAnIStrategyB</name>
         <properties>
             <edgeproperty
-                id="AbstractContextHasAnIStrategyB::source::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>abstractObj</name>
+                id="AbstractContextHasAnIStrategyB::AssociationName"
+                sizeCalculated="true" type="associationName"
+                userDefined="true" visible="true">
+                <name>AbstractContextHasAnIStrategyB</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>-5.0</userOffsetX>
+                    <userOffsetY>57.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>AbstractContextHasAnIStrategyB::WayPoint::0</related0>
+                        <related1>AbstractContextHasAnIStrategyB::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="AbstractContextHasAnIStrategyB::target::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="true" visible="true">
+                <name>1</name>
                 <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>4.0</userOffsetX>
-                    <userOffsetY>21.0</userOffsetY>
-                    <attached>AbstractContextHasAnIStrategyB::WayPoint::0</attached>
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>-14.0</userOffsetY>
+                    <attached>AbstractContextHasAnIStrategyB::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="AbstractContextHasAnIStrategyB::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>sB</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>-3.0</userOffsetX>
+                    <userOffsetY>3.0</userOffsetY>
+                    <attached>AbstractContextHasAnIStrategyB::WayPoint::1</attached>
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>TOP</placement>
@@ -133,48 +165,16 @@
                 <hidden>false</hidden>
             </edgeproperty>
             <edgeproperty
-                id="AbstractContextHasAnIStrategyB::AssociationName"
-                sizeCalculated="true" type="associationName"
-                userDefined="true" visible="true">
-                <name>AbstractContextHasAnIStrategyB</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
-                    <userOffsetX>-3.0</userOffsetX>
-                    <userOffsetY>46.0</userOffsetY>
-                    <offsetX>0.0</offsetX>
-                    <offsetY>-10.0</offsetY>
-                    <related length="2">
-                        <related0>AbstractContextHasAnIStrategyB::WayPoint::0</related0>
-                        <related1>AbstractContextHasAnIStrategyB::WayPoint::1</related1>
-                    </related>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty
-                id="AbstractContextHasAnIStrategyB::target::rolename"
+                id="AbstractContextHasAnIStrategyB::source::rolename"
                 sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>strategyB</name>
+                <name>abstractObj</name>
                 <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>0.0</userOffsetX>
-                    <userOffsetY>21.0</userOffsetY>
-                    <attached>AbstractContextHasAnIStrategyB::WayPoint::1</attached>
+                    <userOffsetX>10.0</userOffsetX>
+                    <userOffsetY>8.0</userOffsetY>
+                    <attached>AbstractContextHasAnIStrategyB::WayPoint::0</attached>
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>TOP</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty
-                id="AbstractContextHasAnIStrategyB::target::multiplicity"
-                sizeCalculated="true" type="multiplicity"
-                userDefined="true" visible="true">
-                <name>1</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>0.0</userOffsetX>
-                    <userOffsetY>-14.0</userOffsetY>
-                    <attached>AbstractContextHasAnIStrategyB::WayPoint::1</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>BOTTOM</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -215,6 +215,52 @@
         <name>AbstractContextHasAnIStrategyA</name>
         <properties>
             <edgeproperty
+                id="AbstractContextHasAnIStrategyA::AssociationName"
+                sizeCalculated="true" type="associationName"
+                userDefined="true" visible="true">
+                <name>AbstractContextHasAnIStrategyA</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>-1.0</userOffsetX>
+                    <userOffsetY>-13.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>AbstractContextHasAnIStrategyA::WayPoint::0</related0>
+                        <related1>AbstractContextHasAnIStrategyA::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="AbstractContextHasAnIStrategyA::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>sA</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>-1.0</userOffsetX>
+                    <userOffsetY>-9.0</userOffsetY>
+                    <attached>AbstractContextHasAnIStrategyA::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="AbstractContextHasAnIStrategyA::target::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="true" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>-4.0</userOffsetX>
+                    <userOffsetY>13.0</userOffsetY>
+                    <attached>AbstractContextHasAnIStrategyA::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
                 id="AbstractContextHasAnIStrategyA::source::rolename"
                 sizeCalculated="true" type="rolename" userDefined="true" visible="true">
                 <name>abstractObj</name>
@@ -240,52 +286,6 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty
-                id="AbstractContextHasAnIStrategyA::AssociationName"
-                sizeCalculated="true" type="associationName"
-                userDefined="true" visible="true">
-                <name>AbstractContextHasAnIStrategyA</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
-                    <userOffsetX>-4.0</userOffsetX>
-                    <userOffsetY>9.0</userOffsetY>
-                    <offsetX>0.0</offsetX>
-                    <offsetY>-10.0</offsetY>
-                    <related length="2">
-                        <related0>AbstractContextHasAnIStrategyA::WayPoint::0</related0>
-                        <related1>AbstractContextHasAnIStrategyA::WayPoint::1</related1>
-                    </related>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty
-                id="AbstractContextHasAnIStrategyA::target::multiplicity"
-                sizeCalculated="true" type="multiplicity"
-                userDefined="true" visible="true">
-                <name>1</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>-4.0</userOffsetX>
-                    <userOffsetY>29.0</userOffsetY>
-                    <attached>AbstractContextHasAnIStrategyA::WayPoint::1</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>BOTTOM</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty
-                id="AbstractContextHasAnIStrategyA::target::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>strategyA</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>-1.0</userOffsetX>
-                    <userOffsetY>-9.0</userOffsetY>
-                    <attached>AbstractContextHasAnIStrategyA::WayPoint::1</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
