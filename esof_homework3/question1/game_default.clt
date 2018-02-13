@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram_Layout version="13">
+    <diagramOptions>
+        <autolayout>false</autolayout>
+        <antialiasing>false</antialiasing>
+        <showassocnames>true</showassocnames>
+        <showattributes>true</showattributes>
+        <showmultiplicities>true</showmultiplicities>
+        <showoperations>true</showoperations>
+        <showrolenames>true</showrolenames>
+        <showgrid>false</showgrid>
+    </diagramOptions>
+    <node id="Player" sizeCalculated="true" type="Class">
+        <name>Player</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>215.0</x>
+            <y>53.0</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="Strength" sizeCalculated="true" type="Enumeration">
+        <name>Strength</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>470.0</x>
+            <y>46.0</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+</diagram_Layout>

@@ -1,0 +1,98 @@
+model FirstPersonShooterGame
+enum Strength {defeatable, undefeatable}
+--classes
+
+/*
+ * The State pattern interface
+ */
+abstract class PlayerState
+ operations
+   seeOpponent()
+     begin
+     end
+   lostOpponent()
+     begin
+     end
+   receiveBlow()
+     begin
+     end
+
+class NeutralState < PlayerState
+ operations
+   seeOpponent()
+     begin
+     end
+   lostOpponent()
+     begin
+     end
+   receiveBlow()
+     begin
+     end
+
+class PanicState < PlayerState
+ operations
+   seeOpponent()
+     begin
+     end
+   lostOpponent()
+     begin
+     end
+   receiveBlow()
+     begin
+   end
+
+class AttackState < PlayerState
+ operations
+   seeOpponent()
+     begin
+     end
+   lostOpponent()
+     begin
+     end
+   receiveBlow()
+     begin
+     end
+
+class DieState < PlayerState
+ operations
+   seeOpponent()
+     begin
+     end
+   lostOpponent()
+     begin
+     end
+   receiveBlow()
+     begin
+     end
+
+class Opponent
+attributes
+  strength : Strength
+
+class Player
+attributes
+	alive : Boolean
+	health : Real init : 100
+  playerState : PlayerState
+  panicState : PlayerState
+  attackState : PlayerState
+  dieState : PlayerState
+  neutralState : PlayerState
+  opponent : Opponent
+operations
+	seeOpponent() : Strength
+	begin
+		result:=opponent.strength;
+	end
+	receiveBlow()
+    begin
+      self.health = self.health-20
+    end
+	lostOpponent()
+    begin
+      opponent = Undefined
+      self.health
+    end
+
+
+end
