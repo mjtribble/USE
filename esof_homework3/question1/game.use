@@ -13,66 +13,109 @@ abstract class PlayerState
    lostOpponent()
      begin
      end
-   receiveBlow()
+   receiveBlow(i:Integer)
      begin
      end
+end
 
-class NeutralState < PlayerState
- operations
+class Neutral < PlayerState
+operations
    seeOpponent()
-     begin
-     end
-   lostOpponent()
-     begin
-     end
-   receiveBlow()
-     begin
-     end
+   begin
+      declare opStrength:Strength;
+      WriteLine('In state:neutral operation:seeOpponent:');
+      opStrength := self.player.opponent.strength;
 
-class PanicState < PlayerState
- operations
-   seeOpponent()
-     begin
-     end
-   lostOpponent()
-     begin
-     end
-   receiveBlow()
-     begin
+      if (opStrength = Strength::undefeatable) then
+        self.player.playerState := self.player.panicState;
+      end;
+      if (opStrength = Strength::defeatable) then
+        self.player.playerState := self.player.attackState;
+      end;
    end
 
-class AttackState < PlayerState
- operations
-   seeOpponent()
-     begin
-     end
    lostOpponent()
-     begin
-     end
-   receiveBlow()
-     begin
-     end
+   begin
+      WriteLine('In state:neutralState operation:lostOpponent YOU DO NOT YET HAVE AN OPPONENT TO LOSE');
+   end
 
-class DieState < PlayerState
- operations
-   seeOpponent()
-     begin
-     end
-   lostOpponent()
-     begin
-     end
-   receiveBlow()
-     begin
-     end
+   receiveBlow(i:Integer)
+   begin
+      WriteLine('In state:neutralState operation:receiveBlow YOU DO NOT YET HAVE AN OPPONENT');
+   end
+end
+
+class Panic < PlayerState
+operations
+ seeOpponent()
+   begin
+      WriteLine('In state:panicState operation:seeOpponent ALREADY SEEN UNDEFEATABLE OPPONENT, PANIC');
+   end
+
+ lostOpponent()
+   begin
+      WriteLine('In state:panicState operation:lostOpponent');
+      self.player.playerState := self.player.neutralState;
+   end
+
+ receiveBlow(i:Integer)
+  begin
+      WriteLine('In state:panicState operation:receiveBlow');
+      self.player.health := self.player.health - i;
+      if (self.player.health = 0) then
+        self.player.playerState := self.player.dieState;
+        self.player.alive := false
+      end;
+  end
+end
+
+class Attack < PlayerState
+operations
+ seeOpponent()
+   begin
+      WriteLine('In state:attackState operation:seeOpponent YOU HAVE ALREADY SEEN OPPONENT, ATTACK!');
+   end
+ lostOpponent()
+   begin
+      WriteLine('In state:attackState operation:lostOpponent');
+      self.player.playerState := self.player.neutralState;
+   end
+ receiveBlow(i:Integer)
+   begin
+       WriteLine('In state:attackState operation:receiveBlow');
+       self.player.health := self.player.health - i;
+       if (self.player.health = 0) then
+         self.player.playerState := self.player.dieState;
+         self.player.alive := false
+       end;
+   end
+end
+
+class Die < PlayerState
+operations
+  seeOpponent()
+   begin
+   WriteLine('In state:dieState operation:seeOpponent');
+   end
+  lostOpponent()
+   begin
+   WriteLine('In state:dieState operation:lostOpponent');
+   end
+  receiveBlow(i:Integer)
+   begin
+   WriteLine('In state:dieState operation:receiveBlow');
+   end
+end
 
 class Opponent
 attributes
   strength : Strength
+end
 
 class Player
 attributes
 	alive : Boolean
-	health : Real init : 100
+	health : Real
   playerState : PlayerState
   panicState : PlayerState
   attackState : PlayerState
@@ -80,19 +123,41 @@ attributes
   neutralState : PlayerState
   opponent : Opponent
 operations
+  /* create a new Player */
+  initInstance()
+  begin
+    self.alive := true;
+    self.health :=100;
+    self.panicState := new Panic;
+    self.attackState := new Attack;
+    self.dieState := new Attack;
+    self.neutralState := new Neutral;
+    self.playerState := self.neutralState;
+    self.opponent := new Opponent;
+    self.opponent.strength := Strength::defeatable;
+  end
 	seeOpponent() : Strength
 	begin
-		result:=opponent.strength;
+		self.playerState.seeOpponent();
 	end
-	receiveBlow()
-    begin
-      self.health = self.health-20
-    end
+
+	receiveBlow(i:Integer)
+  begin
+    self.playerState.receiveBlow(i);
+  end
 	lostOpponent()
     begin
-      opponent = Undefined
-      self.health
+      self.playerState.lostOpponent();
     end
+end
 
+-- associations
+association stateOfPlayer between
+Player[1]
+PlayerState[1]
+end
 
+association opponentOfPlayer between
+Player[1]
+Opponent[1]
 end
