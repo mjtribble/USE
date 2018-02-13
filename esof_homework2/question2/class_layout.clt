@@ -10,226 +10,235 @@
         <showrolenames>true</showrolenames>
         <showgrid>false</showgrid>
     </diagramOptions>
-    <node id="IFlyBehavior" sizeCalculated="true" type="Class">
-        <name>IFlyBehavior</name>
+    <node id="Concrete1StrategyB" sizeCalculated="true" type="Class">
+        <name>Concrete1StrategyB</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>753.0</x>
-            <y>180.0</y>
+            <x>487.1312805655789</x>
+            <y>369.6849068627577</y>
         </strategy>
         <hidden>false</hidden>
     </node>
-    <node id="DecoyDuck" sizeCalculated="true" type="Class">
-        <name>DecoyDuck</name>
+    <node id="Concrete1StrategyA" sizeCalculated="true" type="Class">
+        <name>Concrete1StrategyA</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>315.0015471180178</x>
-            <y>290.6211170720446</y>
+            <x>444.209336379753</x>
+            <y>141.0</y>
         </strategy>
         <hidden>false</hidden>
     </node>
-    <node id="Mallard" sizeCalculated="true" type="Class">
-        <name>Mallard</name>
+    <node id="Concrete3StrategyA" sizeCalculated="true" type="Class">
+        <name>Concrete3StrategyA</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>214.31875126585342</x>
-            <y>291.30220669111225</y>
+            <x>724.5019040170055</x>
+            <y>143.0</y>
         </strategy>
         <hidden>false</hidden>
     </node>
-    <node id="FlyWithWings" sizeCalculated="true" type="Class">
-        <name>FlyWithWings</name>
+    <node id="ConcreteContext3" sizeCalculated="true" type="Class">
+        <name>ConcreteContext3</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>804.0</x>
-            <y>277.0</y>
+            <x>242.6065622593237</x>
+            <y>373.6852385965573</y>
         </strategy>
         <hidden>false</hidden>
     </node>
-    <node id="IQuackBehavior" sizeCalculated="true" type="Class">
-        <name>IQuackBehavior</name>
+    <node id="ConcreteContext2" sizeCalculated="true" type="Class">
+        <name>ConcreteContext2</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>740.5227182122643</x>
-            <y>15.91132866880838</y>
+            <x>120.19272608209059</x>
+            <y>376.0</y>
         </strategy>
         <hidden>false</hidden>
     </node>
-    <node id="Duck" sizeCalculated="true" type="Class">
-        <name>Duck</name>
+    <node id="Concrete2StrategyB" sizeCalculated="true" type="Class">
+        <name>Concrete2StrategyB</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>238.0393554572803</x>
-            <y>57.44870536467306</y>
+            <x>646.7290999919429</x>
+            <y>370.0</y>
         </strategy>
         <hidden>false</hidden>
     </node>
-    <node id="Quack" sizeCalculated="true" type="Class">
-        <name>Quack</name>
+    <node id="ConcreteContext1" sizeCalculated="true" type="Class">
+        <name>ConcreteContext1</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>684.7794972161726</x>
-            <y>109.00825230643972</y>
+            <x>4.150649007563061</x>
+            <y>376.0</y>
         </strategy>
         <hidden>false</hidden>
     </node>
-    <node id="Squeak" sizeCalculated="true" type="Class">
-        <name>Squeak</name>
+    <node id="Concrete2StrategyA" sizeCalculated="true" type="Class">
+        <name>Concrete2StrategyA</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>856.2597377582742</x>
-            <y>110.58850362719716</y>
+            <x>586.7466209277952</x>
+            <y>143.71203351650558</y>
         </strategy>
         <hidden>false</hidden>
     </node>
-    <node id="RubberDuck" sizeCalculated="true" type="Class">
-        <name>RubberDuck</name>
+    <node id="IStrategyA" sizeCalculated="true" type="Class">
+        <name>IStrategyA</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>422.7795719525046</x>
-            <y>292.4190841292809</y>
+            <x>571.8557832588433</x>
+            <y>20.57019304888027</y>
         </strategy>
         <hidden>false</hidden>
     </node>
-    <node id="Mute" sizeCalculated="true" type="Class">
-        <name>Mute</name>
+    <node id="IStrategyB" sizeCalculated="true" type="Class">
+        <name>IStrategyB</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>761.9536461886292</x>
-            <y>109.70080214044424</y>
+            <x>574.0012087342905</x>
+            <y>281.49501629008444</y>
         </strategy>
         <hidden>false</hidden>
     </node>
-    <node id="FlyNotSoMuch" sizeCalculated="true" type="Class">
-        <name>FlyNotSoMuch</name>
+    <node id="AbstractContext" sizeCalculated="true" type="Class">
+        <name>AbstractContext</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>708.0</x>
-            <y>276.0</y>
+            <x>97.37177881981711</x>
+            <y>16.418849674334524</y>
         </strategy>
         <hidden>false</hidden>
     </node>
     <edge type="BinaryEdge">
-        <source>Duck</source>
-        <target>IFlyBehavior</target>
-        <name>DuckHasAFlyBehavior</name>
+        <source>AbstractContext</source>
+        <target>IStrategyB</target>
+        <name>AbstractContextHasAnIStrategyB</name>
         <properties>
-            <edgeproperty id="DuckHasAFlyBehavior::AssociationName"
+            <edgeproperty
+                id="AbstractContextHasAnIStrategyB::AssociationName"
                 sizeCalculated="true" type="associationName"
                 userDefined="true" visible="true">
-                <name>DuckHasAFlyBehavior</name>
+                <name>AbstractContextHasAnIStrategyB</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>-5.0</userOffsetX>
+                    <userOffsetY>57.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>AbstractContextHasAnIStrategyB::WayPoint::0</related0>
+                        <related1>AbstractContextHasAnIStrategyB::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="AbstractContextHasAnIStrategyB::target::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="true" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>-14.0</userOffsetY>
+                    <attached>AbstractContextHasAnIStrategyB::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="AbstractContextHasAnIStrategyB::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>sB</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>-3.0</userOffsetX>
+                    <userOffsetY>3.0</userOffsetY>
+                    <attached>AbstractContextHasAnIStrategyB::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="AbstractContextHasAnIStrategyB::source::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="true" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>17.0</userOffsetX>
+                    <userOffsetY>-10.0</userOffsetY>
+                    <attached>AbstractContextHasAnIStrategyB::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="AbstractContextHasAnIStrategyB::source::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>abstractObj</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>10.0</userOffsetX>
+                    <userOffsetY>8.0</userOffsetY>
+                    <attached>AbstractContextHasAnIStrategyB::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty
+                id="AbstractContextHasAnIStrategyB::WayPoint::0"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="AbstractContextHasAnIStrategyB::WayPoint::1"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>AbstractContext</source>
+        <target>IStrategyA</target>
+        <name>AbstractContextHasAnIStrategyA</name>
+        <properties>
+            <edgeproperty
+                id="AbstractContextHasAnIStrategyA::AssociationName"
+                sizeCalculated="true" type="associationName"
+                userDefined="true" visible="true">
+                <name>AbstractContextHasAnIStrategyA</name>
                 <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
                     <userOffsetX>-1.0</userOffsetX>
-                    <userOffsetY>47.0</userOffsetY>
-                    <offsetX>0.0</offsetX>
-                    <offsetY>-10.0</offsetY>
-                    <related length="2">
-                        <related0>DuckHasAFlyBehavior::WayPoint::0</related0>
-                        <related1>DuckHasAFlyBehavior::WayPoint::1</related1>
-                    </related>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty id="DuckHasAFlyBehavior::target::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>fly</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>-10.0</userOffsetX>
-                    <userOffsetY>28.0</userOffsetY>
-                    <attached>DuckHasAFlyBehavior::WayPoint::1</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty id="DuckHasAFlyBehavior::target::multiplicity"
-                sizeCalculated="true" type="multiplicity"
-                userDefined="true" visible="true">
-                <name>1</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>-2.0</userOffsetX>
-                    <userOffsetY>-11.0</userOffsetY>
-                    <attached>DuckHasAFlyBehavior::WayPoint::1</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>BOTTOM</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty id="DuckHasAFlyBehavior::source::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>duck</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>11.0</userOffsetX>
-                    <userOffsetY>14.0</userOffsetY>
-                    <attached>DuckHasAFlyBehavior::WayPoint::0</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty id="DuckHasAFlyBehavior::source::multiplicity"
-                sizeCalculated="true" type="multiplicity"
-                userDefined="true" visible="true">
-                <name>*</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>12.0</userOffsetX>
                     <userOffsetY>-13.0</userOffsetY>
-                    <attached>DuckHasAFlyBehavior::WayPoint::0</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>BOTTOM</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-        </properties>
-        <waypoints>
-            <edgeproperty id="DuckHasAFlyBehavior::WayPoint::0"
-                sizeCalculated="true" type="WayPoint"
-                userDefined="false" visible="true">
-                <name>0</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
-                    <userOffsetX>0.0</userOffsetX>
-                    <userOffsetY>0.0</userOffsetY>
-                </strategy>
-                <id>0</id>
-                <specialid>1</specialid>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty id="DuckHasAFlyBehavior::WayPoint::1"
-                sizeCalculated="true" type="WayPoint"
-                userDefined="false" visible="true">
-                <name>1</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
-                    <userOffsetX>0.0</userOffsetX>
-                    <userOffsetY>0.0</userOffsetY>
-                </strategy>
-                <id>1</id>
-                <specialid>2</specialid>
-                <hidden>false</hidden>
-            </edgeproperty>
-        </waypoints>
-        <hidden>false</hidden>
-    </edge>
-    <edge type="BinaryEdge">
-        <source>Duck</source>
-        <target>IQuackBehavior</target>
-        <name>DuckHasAQuackBehavior</name>
-        <properties>
-            <edgeproperty id="DuckHasAQuackBehavior::AssociationName"
-                sizeCalculated="true" type="associationName"
-                userDefined="true" visible="true">
-                <name>DuckHasAQuackBehavior</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
-                    <userOffsetX>-22.0</userOffsetX>
-                    <userOffsetY>-12.0</userOffsetY>
                     <offsetX>0.0</offsetX>
                     <offsetY>-10.0</offsetY>
                     <related length="2">
-                        <related0>DuckHasAQuackBehavior::WayPoint::0</related0>
-                        <related1>DuckHasAQuackBehavior::WayPoint::1</related1>
+                        <related0>AbstractContextHasAnIStrategyA::WayPoint::0</related0>
+                        <related1>AbstractContextHasAnIStrategyA::WayPoint::1</related1>
                     </related>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
-            <edgeproperty id="DuckHasAQuackBehavior::target::rolename"
+            <edgeproperty
+                id="AbstractContextHasAnIStrategyA::target::rolename"
                 sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>quack</name>
+                <name>sA</name>
                 <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>-21.0</userOffsetX>
-                    <userOffsetY>-12.0</userOffsetY>
-                    <attached>DuckHasAQuackBehavior::WayPoint::1</attached>
+                    <userOffsetX>-1.0</userOffsetX>
+                    <userOffsetY>-9.0</userOffsetY>
+                    <attached>AbstractContextHasAnIStrategyA::WayPoint::1</attached>
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>TOP</placement>
@@ -237,14 +246,14 @@
                 <hidden>false</hidden>
             </edgeproperty>
             <edgeproperty
-                id="DuckHasAQuackBehavior::target::multiplicity"
+                id="AbstractContextHasAnIStrategyA::target::multiplicity"
                 sizeCalculated="true" type="multiplicity"
-                userDefined="false" visible="true">
+                userDefined="true" visible="true">
                 <name>1</name>
                 <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>0.0</userOffsetX>
-                    <userOffsetY>0.0</userOffsetY>
-                    <attached>DuckHasAQuackBehavior::WayPoint::1</attached>
+                    <userOffsetX>-4.0</userOffsetX>
+                    <userOffsetY>13.0</userOffsetY>
+                    <attached>AbstractContextHasAnIStrategyA::WayPoint::1</attached>
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
@@ -252,36 +261,38 @@
                 <hidden>false</hidden>
             </edgeproperty>
             <edgeproperty
-                id="DuckHasAQuackBehavior::source::multiplicity"
-                sizeCalculated="true" type="multiplicity"
-                userDefined="false" visible="true">
-                <name>*</name>
+                id="AbstractContextHasAnIStrategyA::source::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>abstractObj</name>
                 <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
                     <userOffsetX>0.0</userOffsetX>
-                    <userOffsetY>0.0</userOffsetY>
-                    <attached>DuckHasAQuackBehavior::WayPoint::0</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>BOTTOM</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty id="DuckHasAQuackBehavior::source::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>duck</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>8.0</userOffsetX>
-                    <userOffsetY>-16.0</userOffsetY>
-                    <attached>DuckHasAQuackBehavior::WayPoint::0</attached>
+                    <userOffsetY>-6.0</userOffsetY>
+                    <attached>AbstractContextHasAnIStrategyA::WayPoint::0</attached>
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="AbstractContextHasAnIStrategyA::source::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="true" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>15.0</userOffsetX>
+                    <userOffsetY>15.0</userOffsetY>
+                    <attached>AbstractContextHasAnIStrategyA::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
         </properties>
         <waypoints>
-            <edgeproperty id="DuckHasAQuackBehavior::WayPoint::0"
+            <edgeproperty
+                id="AbstractContextHasAnIStrategyA::WayPoint::0"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>0</name>
@@ -293,7 +304,8 @@
                 <specialid>1</specialid>
                 <hidden>false</hidden>
             </edgeproperty>
-            <edgeproperty id="DuckHasAQuackBehavior::WayPoint::1"
+            <edgeproperty
+                id="AbstractContextHasAnIStrategyA::WayPoint::1"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>1</name>
@@ -309,13 +321,13 @@
         <hidden>false</hidden>
     </edge>
     <edge type="Generalization">
-        <source>Quack</source>
-        <target>IQuackBehavior</target>
+        <source>Concrete1StrategyA</source>
+        <target>IStrategyA</target>
         <name>Inheritance</name>
         <properties/>
         <waypoints>
             <edgeproperty
-                id="Generalization::Quack::IQuackBehavior::WayPoint::0"
+                id="Generalization::Concrete1StrategyA::IStrategyA::WayPoint::0"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>0</name>
@@ -328,7 +340,7 @@
                 <hidden>false</hidden>
             </edgeproperty>
             <edgeproperty
-                id="Generalization::Quack::IQuackBehavior::WayPoint::1"
+                id="Generalization::Concrete1StrategyA::IStrategyA::WayPoint::1"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>1</name>
@@ -344,13 +356,13 @@
         <hidden>false</hidden>
     </edge>
     <edge type="Generalization">
-        <source>DecoyDuck</source>
-        <target>Duck</target>
+        <source>Concrete3StrategyA</source>
+        <target>IStrategyA</target>
         <name>Inheritance</name>
         <properties/>
         <waypoints>
             <edgeproperty
-                id="Generalization::DecoyDuck::Duck::WayPoint::0"
+                id="Generalization::Concrete3StrategyA::IStrategyA::WayPoint::0"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>0</name>
@@ -363,7 +375,7 @@
                 <hidden>false</hidden>
             </edgeproperty>
             <edgeproperty
-                id="Generalization::DecoyDuck::Duck::WayPoint::1"
+                id="Generalization::Concrete3StrategyA::IStrategyA::WayPoint::1"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>1</name>
@@ -379,13 +391,13 @@
         <hidden>false</hidden>
     </edge>
     <edge type="Generalization">
-        <source>FlyWithWings</source>
-        <target>IFlyBehavior</target>
+        <source>Concrete1StrategyB</source>
+        <target>IStrategyB</target>
         <name>Inheritance</name>
         <properties/>
         <waypoints>
             <edgeproperty
-                id="Generalization::FlyWithWings::IFlyBehavior::WayPoint::0"
+                id="Generalization::Concrete1StrategyB::IStrategyB::WayPoint::0"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>0</name>
@@ -398,7 +410,7 @@
                 <hidden>false</hidden>
             </edgeproperty>
             <edgeproperty
-                id="Generalization::FlyWithWings::IFlyBehavior::WayPoint::1"
+                id="Generalization::Concrete1StrategyB::IStrategyB::WayPoint::1"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>1</name>
@@ -414,13 +426,13 @@
         <hidden>false</hidden>
     </edge>
     <edge type="Generalization">
-        <source>Squeak</source>
-        <target>IQuackBehavior</target>
+        <source>ConcreteContext1</source>
+        <target>AbstractContext</target>
         <name>Inheritance</name>
         <properties/>
         <waypoints>
             <edgeproperty
-                id="Generalization::Squeak::IQuackBehavior::WayPoint::0"
+                id="Generalization::ConcreteContext1::AbstractContext::WayPoint::0"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>0</name>
@@ -433,7 +445,7 @@
                 <hidden>false</hidden>
             </edgeproperty>
             <edgeproperty
-                id="Generalization::Squeak::IQuackBehavior::WayPoint::1"
+                id="Generalization::ConcreteContext1::AbstractContext::WayPoint::1"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>1</name>
@@ -449,13 +461,13 @@
         <hidden>false</hidden>
     </edge>
     <edge type="Generalization">
-        <source>Mallard</source>
-        <target>Duck</target>
+        <source>Concrete2StrategyA</source>
+        <target>IStrategyA</target>
         <name>Inheritance</name>
         <properties/>
         <waypoints>
             <edgeproperty
-                id="Generalization::Mallard::Duck::WayPoint::0"
+                id="Generalization::Concrete2StrategyA::IStrategyA::WayPoint::0"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>0</name>
@@ -468,7 +480,7 @@
                 <hidden>false</hidden>
             </edgeproperty>
             <edgeproperty
-                id="Generalization::Mallard::Duck::WayPoint::1"
+                id="Generalization::Concrete2StrategyA::IStrategyA::WayPoint::1"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>1</name>
@@ -484,13 +496,13 @@
         <hidden>false</hidden>
     </edge>
     <edge type="Generalization">
-        <source>RubberDuck</source>
-        <target>Duck</target>
+        <source>ConcreteContext2</source>
+        <target>AbstractContext</target>
         <name>Inheritance</name>
         <properties/>
         <waypoints>
             <edgeproperty
-                id="Generalization::RubberDuck::Duck::WayPoint::0"
+                id="Generalization::ConcreteContext2::AbstractContext::WayPoint::0"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>0</name>
@@ -503,7 +515,7 @@
                 <hidden>false</hidden>
             </edgeproperty>
             <edgeproperty
-                id="Generalization::RubberDuck::Duck::WayPoint::1"
+                id="Generalization::ConcreteContext2::AbstractContext::WayPoint::1"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>1</name>
@@ -519,13 +531,13 @@
         <hidden>false</hidden>
     </edge>
     <edge type="Generalization">
-        <source>Mute</source>
-        <target>IQuackBehavior</target>
+        <source>Concrete2StrategyB</source>
+        <target>IStrategyB</target>
         <name>Inheritance</name>
         <properties/>
         <waypoints>
             <edgeproperty
-                id="Generalization::Mute::IQuackBehavior::WayPoint::0"
+                id="Generalization::Concrete2StrategyB::IStrategyB::WayPoint::0"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>0</name>
@@ -538,7 +550,7 @@
                 <hidden>false</hidden>
             </edgeproperty>
             <edgeproperty
-                id="Generalization::Mute::IQuackBehavior::WayPoint::1"
+                id="Generalization::Concrete2StrategyB::IStrategyB::WayPoint::1"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>1</name>
@@ -554,13 +566,13 @@
         <hidden>false</hidden>
     </edge>
     <edge type="Generalization">
-        <source>FlyNotSoMuch</source>
-        <target>IFlyBehavior</target>
+        <source>ConcreteContext3</source>
+        <target>AbstractContext</target>
         <name>Inheritance</name>
         <properties/>
         <waypoints>
             <edgeproperty
-                id="Generalization::FlyNotSoMuch::IFlyBehavior::WayPoint::0"
+                id="Generalization::ConcreteContext3::AbstractContext::WayPoint::0"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>0</name>
@@ -573,7 +585,7 @@
                 <hidden>false</hidden>
             </edgeproperty>
             <edgeproperty
-                id="Generalization::FlyNotSoMuch::IFlyBehavior::WayPoint::1"
+                id="Generalization::ConcreteContext3::AbstractContext::WayPoint::1"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>1</name>
