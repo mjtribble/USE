@@ -95,15 +95,15 @@ class Die < PlayerState
 operations
   seeOpponent()
    begin
-   WriteLine('In state:dieState operation:seeOpponent');
+   WriteLine('In state:dieState operation:seeOpponent YOU ARE DEAD');
    end
   lostOpponent()
    begin
-   WriteLine('In state:dieState operation:lostOpponent');
+   WriteLine('In state:dieState operation:lostOpponent YOU ARE DEAD');
    end
   receiveBlow(i:Integer)
    begin
-   WriteLine('In state:dieState operation:receiveBlow');
+   WriteLine('In state:dieState operation:receiveBlow YOU ARE DEAD');
    end
 end
 
@@ -130,13 +130,13 @@ operations
     self.health :=100;
     self.panicState := new Panic;
     self.attackState := new Attack;
-    self.dieState := new Attack;
+    self.dieState := new Die;
     self.neutralState := new Neutral;
     self.playerState := self.neutralState;
     self.opponent := new Opponent;
     self.opponent.strength := Strength::defeatable;
   end
-	seeOpponent() : Strength
+	seeOpponent()
 	begin
 		self.playerState.seeOpponent();
 	end
