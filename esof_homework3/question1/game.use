@@ -149,6 +149,27 @@ operations
     begin
       self.playerState.lostOpponent();
     end
+
+statemachines
+  psm PlayerState
+  states
+    startUp:initial
+  neutralState      [playerState = neutralState]
+  attackState       [playerState = attackState]
+  panicState      [playerState = panicState]
+  dieState   [playerState = dieState]
+  --game over
+  endState:final
+  transitions
+    startUp -> neutralState {create}
+  neutralState -> attackState { [opponent.strength = Strength::defeatable] seeOpponent()}
+  neutralState -> panicState { [opponent.strength = Strength::undefeatable] seeOpponent()}
+  attackState -> neutralState { lostOpponent() }
+  attackState -> dieState {receiveBlow() [health-i=0]}
+  panicState -> neutralState { lostOpponent()}
+  panicState -> dieState { receiveBlow() [health-i=0] }
+  dieState -> endState
+  end
 end
 
 -- associations
