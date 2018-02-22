@@ -140,7 +140,6 @@ operations
 	begin
 		self.playerState.seeOpponent();
 	end
-
 	receiveBlow(i:Integer)
   begin
     self.playerState.receiveBlow(i);
@@ -153,7 +152,7 @@ operations
 statemachines
   psm PlayerState
   states
-    startUp:initial
+  startUp:initial
   neutralState      [playerState = neutralState]
   attackState       [playerState = attackState]
   panicState      [playerState = panicState]
@@ -161,13 +160,19 @@ statemachines
   --game over
   endState:final
   transitions
-    startUp -> neutralState {create}
-  neutralState -> attackState { [opponent.strength = Strength::defeatable] seeOpponent()}
-  neutralState -> panicState { [opponent.strength = Strength::undefeatable] seeOpponent()}
+  startUp -> neutralState {create}
+  neutralState -> attackState { seeOpponent()[opponent.strength = Strength::defeatable]}
+  neutralState -> panicState { seeOpponent()[opponent.strength = Strength::undefeatable]}
   attackState -> neutralState { lostOpponent() }
-  attackState -> dieState {receiveBlow() [health-i=0]}
+  attackState -> attackState {receiveBlow() [health>0]}
+  attackState -> dieState {receiveBlow() [health=0]}
   panicState -> neutralState { lostOpponent()}
-  panicState -> dieState { receiveBlow() [health-i=0] }
+  panicState -> panicState {receiveBlow() [health>0]}
+  panicState -> dieState { receiveBlow() [health=0] }
+  --maybe in the dieState we just don't have the options of see, receive, lost, etc.?
+  dieState -> dieState {[playerState=dieState] seeOpponent()}
+  dieState-> dieState {[playerState=dieState]  receiveBlow()}
+  dieState -> dieState {[playerState=dieState] lostOpponent()}
   dieState -> endState
   end
 end
