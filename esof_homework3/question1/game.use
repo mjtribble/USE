@@ -41,17 +41,27 @@ operations
 
    receiveBlow(i:Integer)
    begin
-      WriteLine('In state:neutralState operation:receiveBlow YOU DO NOT YET HAVE AN OPPONENT');
-   end
+     WriteLine('In state:neutralState operation:receiveBlow');
+     self.player.health := self.player.health - i;
+     self.player.playerState := self.player.panicState;
+  end
 end
 
 class Panic < PlayerState
 operations
  seeOpponent()
    begin
-      WriteLine('In state:panicState operation:seeOpponent ALREADY SEEN UNDEFEATABLE OPPONENT, PANIC');
-   end
+      declare opStrength:Strength;
+      WriteLine('In state:panic operation:seeOpponent:');
+      opStrength := self.player.opponent.strength;
 
+      if (opStrength = Strength::undefeatable) then
+        WriteLine('Opponent UNDEFEATABLE, CONTINUE TO PANIC');
+      end;
+      if (opStrength = Strength::defeatable) then
+        self.player.playerState := self.player.attackState;
+      end;
+   end
  lostOpponent()
    begin
       WriteLine('In state:panicState operation:lostOpponent');
@@ -65,6 +75,9 @@ operations
       if (self.player.health = 0) then
         self.player.playerState := self.player.dieState;
         self.player.alive := false
+      end;
+      if (self.player.health > 10 and self.player.opponent.strength = Strength::defeatable) then
+        self.player.playerState := self.player.attackState;
       end;
   end
 end
@@ -87,6 +100,9 @@ operations
        if (self.player.health = 0) then
          self.player.playerState := self.player.dieState;
          self.player.alive := false
+       end;
+       if (self.player.health < 10 and self.player.health > 0) then
+        self.player.playerState := self.player.panicState;
        end;
    end
 end
@@ -163,10 +179,16 @@ statemachines
   startUp -> neutralState {create}
   neutralState -> attackState { seeOpponent()[opponent.strength = Strength::defeatable]}
   neutralState -> panicState { seeOpponent()[opponent.strength = Strength::undefeatable]}
+  neutralState -> panicState { receiveBlow() [health > 0]}
+  neutralState -> dieState { receiveBlow() [health = 0]}
   attackState -> neutralState { lostOpponent() }
   attackState -> attackState {receiveBlow() [health>0]}
+  attackState -> panicState {receiveBlow() [health < 10 and health>0]}
   attackState -> dieState {receiveBlow() [health=0]}
   panicState -> neutralState { lostOpponent()}
+  panicState -> attackState { seeOpponent()[opponent.strength = Strength::defeatable]}
+  panicState -> panicState { seeOpponent()[opponent.strength = Strength::undefeatable]}
+  panicState -> attackState { receiveBlow() [health>10 and opponent.strength = Strength::defeatable]}
   panicState -> panicState {receiveBlow() [health>0]}
   panicState -> dieState { receiveBlow() [health=0] }
   --maybe in the dieState we just don't have the options of see, receive, lost, etc.?
