@@ -1,5 +1,6 @@
 model FirstPersonShooterGame
 enum Strength {defeatable, undefeatable}
+enum weaponType {sword, shield, arrows}
 --classes
 
 /*
@@ -7,6 +8,12 @@ enum Strength {defeatable, undefeatable}
  */
 abstract class PlayerState
  operations
+   landBlow()
+    begin
+    end
+   getWeapon(w:Weapon)
+    begin
+    end
    seeOpponent()
      begin
      end
@@ -20,6 +27,24 @@ end
 
 class Neutral < PlayerState
 operations
+   landBlow()
+    begin
+      WriteLine('In state: neutral operation:landBlow, YOU HAVE NO OPPONENT TO HIT');
+    end
+   getWeapon(w:Weapon)
+    begin
+      WriteLine('In state:neutral operation:getWeapon WEAPON ACQUIRE');
+      self.player.weapon := w;
+      if(w.type = weaponType::sword) then
+        self.player.weapon.power := 25;
+      end;
+      if(w.type = weaponType::arrows) then
+        self.player.weapon.power := 10;
+      end;
+      if(w.type = weaponType::shield) then
+        self.player.weapon.power := 30;
+      end;
+    end
    seeOpponent()
    begin
       declare opStrength:Strength;
@@ -49,6 +74,14 @@ end
 
 class Panic < PlayerState
 operations
+ landBlow()
+  begin
+    WriteLine('In state:panic operation:landBlow, TOO PANICKED');
+  end
+ getWeapon(w:Weapon)
+  begin
+    WriteLine('In state:panic operation:getWeapon TOO LATE, ALREADY IN PANIC MODE');
+  end
  seeOpponent()
    begin
       declare opStrength:Strength;
@@ -71,6 +104,9 @@ operations
  receiveBlow(i:Integer)
   begin
       WriteLine('In state:panicState operation:receiveBlow');
+      if(self.player.weapon.type = weaponType::shield) then
+        self.player.health := self.player.health + self.player.weapon.power;
+      end;
       self.player.health := self.player.health - i;
       if (self.player.health = 0) then
         self.player.playerState := self.player.dieState;
@@ -84,6 +120,10 @@ end
 
 class Attack < PlayerState
 operations
+ getWeapon(w:Weapon)
+  begin
+    WriteLine('In state:attack operation:getWeapon TOO LATE, ALREADY IN ATTACK MODE');
+  end
  seeOpponent()
    begin
       WriteLine('In state:attackState operation:seeOpponent YOU HAVE ALREADY SEEN OPPONENT, ATTACK!');
@@ -93,6 +133,18 @@ operations
       WriteLine('In state:attackState operation:lostOpponent');
       self.player.playerState := self.player.neutralState;
    end
+ landBlow()
+  begin
+    if(self.player.weapon.type = weaponType::shield) then
+      WriteLine('In state:attackState operation:landBlow, YOU HAVE A DEFENSIVE WEAPON')
+    end;
+    if(self.player.weapon.type = weaponType::arrows or self.player.weapon.type = weaponType::sword) then
+      self.player.opponent.health := self.player.opponent.health - self.player.weapon.power;
+    end;
+    if(self.player.weapon.type = null) then
+      WriteLine('In state:attackState operation:landBlow, YOU HAVE NO WEAPON')
+    end;
+  end
  receiveBlow(i:Integer)
    begin
        WriteLine('In state:attackState operation:receiveBlow');
@@ -109,6 +161,14 @@ end
 
 class Die < PlayerState
 operations
+  landBlow()
+    begin
+    WriteLine('In state:die operation:landBlow YOU ARE DEAD');
+    end
+  getWeapon(w:Weapon)
+    begin
+    WriteLine('In state:die operation:getWeapon YOU ARE DEAD');
+    end
   seeOpponent()
    begin
    WriteLine('In state:dieState operation:seeOpponent YOU ARE DEAD');
@@ -126,6 +186,19 @@ end
 class Opponent
 attributes
   strength : Strength
+  health : Real
+operations
+  initInstance()
+  begin
+    self.strength := Strength::defeatable;
+    self.health := 100;
+  end
+end
+
+class Weapon
+attributes
+  type : weaponType
+  power : Real
 end
 
 class Player
@@ -138,6 +211,7 @@ attributes
   dieState : PlayerState
   neutralState : PlayerState
   opponent : Opponent
+  weapon : Weapon
 operations
   /* create a new Player */
   initInstance()
@@ -150,8 +224,18 @@ operations
     self.neutralState := new Neutral;
     self.playerState := self.neutralState;
     self.opponent := new Opponent;
-    self.opponent.strength := Strength::defeatable;
+    self.opponent.initInstance();
+    self.weapon := new Weapon;
+    self.weapon.power := 0;
   end
+  landBlow()
+    begin
+      self.playerState.landBlow();
+    end
+  getWeapon(w:Weapon)
+    begin
+      self.playerState.getWeapon(w);
+    end
 	seeOpponent()
 	begin
 		self.playerState.seeOpponent();
@@ -183,6 +267,7 @@ statemachines
   neutralState -> dieState { receiveBlow() [health = 0]}
   attackState -> neutralState { lostOpponent() }
   attackState -> attackState {receiveBlow() [health>0]}
+  --attackState -> attackState {landBlow()}
   attackState -> panicState {receiveBlow() [health < 10 and health>0]}
   attackState -> dieState {receiveBlow() [health=0]}
   panicState -> neutralState { lostOpponent()}
@@ -191,7 +276,6 @@ statemachines
   panicState -> attackState { receiveBlow() [health>10 and opponent.strength = Strength::defeatable]}
   panicState -> panicState {receiveBlow() [health>0]}
   panicState -> dieState { receiveBlow() [health=0] }
-  --maybe in the dieState we just don't have the options of see, receive, lost, etc.?
   dieState -> dieState {[playerState=dieState] seeOpponent()}
   dieState-> dieState {[playerState=dieState]  receiveBlow()}
   dieState -> dieState {[playerState=dieState] lostOpponent()}
@@ -208,4 +292,9 @@ end
 association opponentOfPlayer between
 Player[1]
 Opponent[1]
+end
+
+association weaponOfPlayer between
+Player[1]
+Weapon[1]
 end
