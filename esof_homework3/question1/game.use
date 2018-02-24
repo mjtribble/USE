@@ -95,8 +95,10 @@ operations
    end
  receiveBlow(i:Integer)
    begin
+    declare health:Integer;
        WriteLine('In state:attackState operation:receiveBlow');
-       self.player.health := self.player.health - i;
+    self.player.health := self.player.health - i;
+    health := self.player.health;
        if (self.player.health = 0) then
          self.player.playerState := self.player.dieState;
          self.player.alive := false
