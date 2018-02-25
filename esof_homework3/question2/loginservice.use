@@ -1,35 +1,40 @@
 --This USE file creates a LoginService which is a component of a larger system
 model LoginService
-enum Payment {Cash, Credit}
 /*
  * The UserLogin interface
  */
 abstract class IUserLogin
 operations
-    login()
-     begin
-     end
-end
-
-class NewUser < IUserLogin
-operations
   login()
     begin
     end
-  register(p:Payment)
-    begin
-      self.loginService.payment:= p
-    end
 end
 
-class Registered < IUserLogin
-operations
-  login()
-    begin
-    end
+class Users
+attributes
+  userName:String
+  userPswd:String
+  loginService:IUserLogin
+end
+
+class NewUser < Users
+end
+
+class Registered < Users
 end
 
 abstract class Authentication
+operations
+  authenticate()
+    begin
+    end
+end
+
+abstract class IPayment
+operations
+  pay()
+    begin
+    end
 end
 
 class TaxCustomerService
@@ -39,10 +44,11 @@ operations
     end
 end
 
-class LoginService
-attributes
-  payment : Payment
+class LoginService < IUserLogin, Authentication, IPayment
 operations
+  login()
+    begin
+    end
   help()
     begin
     end
@@ -55,19 +61,20 @@ operations
   resetPassword()
     begin
     end
+  pay()
+    begin
+    end
+  authenticate()
+    begin
+    end
 end
 
 association typeOfUser between
  IUserLogin[1]
-LoginService[1]
+ Users[1]
 end
 
 association helpService between
   LoginService[1]
   TaxCustomerService[1]
-end
-
-association authService between
-  LoginService[1]
-  Authentication[1]
 end
