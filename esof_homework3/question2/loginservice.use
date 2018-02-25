@@ -1,35 +1,40 @@
 --This USE file creates a LoginService which is a component of a larger system
 model LoginService
-enum Payment {Cash, Credit}
 /*
  * The UserLogin interface
  */
 abstract class IUserLogin
 operations
-    login()
-     begin
-     end
-end
-
-class NewUser < IUserLogin
-operations
-  login()
+  login(name:String, word:String)
     begin
-    end
-  register(p:Payment)
-    begin
-      self.loginService.payment:= p
     end
 end
 
-class Registered < IUserLogin
-operations
-  login()
-    begin
-    end
+class Users
+attributes
+  userName:String
+  userPswd:String
+  loginService:IUserLogin
+end
+
+class NewUser < Users
+end
+
+class Registered < Users
 end
 
 abstract class Authentication
+operations
+  authenticate(name:String, word:String):Boolean
+    begin
+    end
+end
+
+abstract class IPayment
+operations
+  pay()
+    begin
+    end
 end
 
 class TaxCustomerService
@@ -39,27 +44,38 @@ operations
     end
 end
 
-class LoginService
+class LoginService < IUserLogin, Authentication, IPayment
 attributes
-  payment : Payment
+  userName: String
+  userPswd: String
+  accessSystem : Boolean
+  customerRep : TaxCustomerService
 operations
+  login(name:String, word:String)
+    begin
+      self.userName:=name;
+      self.userPswd:=word;
+      self.accessSystem:=self.authenticate(self.userName, self.userPswd);
+    end
   help()
     begin
-    end
-  enterUserName()
-    begin
-    end
-  enterPassword()
-    begin
+      self.customerRep.help()
     end
   resetPassword()
     begin
     end
+  pay()
+    begin
+    end
+  authenticate(name:String, word:String):Boolean
+    begin
+      result := true;
+    end
 end
 
-association typeOfUser between
+association userLogin between
  IUserLogin[1]
-LoginService[1]
+ Users[1]
 end
 
 association helpService between
@@ -67,7 +83,12 @@ association helpService between
   TaxCustomerService[1]
 end
 
-association authService between
-  LoginService[1]
-  Authentication[1]
-end
+constraints
+context LoginService::login(name: String, word:String)
+pre login1: name.isDefined()
+pre login2: word.isDefined()
+post login3: accessSystem = true
+
+context Users
+inv: userName.oclIsTypeOf(String)
+inv: userPswd.oclIsTypeOf(String)
