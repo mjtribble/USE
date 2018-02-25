@@ -77,7 +77,7 @@ operations
     end
 end
 
-association typeOfUser between
+association userLogin between
  IUserLogin[1]
  Users[1]
 end
