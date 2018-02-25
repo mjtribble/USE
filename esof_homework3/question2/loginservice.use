@@ -5,7 +5,7 @@ model LoginService
  */
 abstract class IUserLogin
 operations
-  login()
+  login(name:String, word:String)
     begin
     end
 end
@@ -25,7 +25,7 @@ end
 
 abstract class Authentication
 operations
-  authenticate()
+  authenticate(name:String, word:String):Boolean
     begin
     end
 end
@@ -45,9 +45,16 @@ operations
 end
 
 class LoginService < IUserLogin, Authentication, IPayment
+attributes
+  userName: String
+  userPswd: String
+  accessSystem : Boolean
 operations
-  login()
+  login(name:String, word:String)
     begin
+      self.userName:=name;
+      self.userPswd:=word;
+      self.accessSystem:=self.authenticate(self.userName, self.userPswd);
     end
   help()
     begin
@@ -64,8 +71,9 @@ operations
   pay()
     begin
     end
-  authenticate()
+  authenticate(name:String, word:String):Boolean
     begin
+      result := true;
     end
 end
 
@@ -78,3 +86,9 @@ association helpService between
   LoginService[1]
   TaxCustomerService[1]
 end
+
+constraints
+context LoginService::login(name: String, word:String)
+pre login1: name.isDefined()
+pre login2: word.isDefined()
+post login3: accessSystem = true
