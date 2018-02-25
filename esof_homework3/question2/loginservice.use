@@ -75,7 +75,7 @@ end
 
 association userLogin between
  IUserLogin[1]
- Users[1]
+ Users[0..*]
 end
 
 association helpService between

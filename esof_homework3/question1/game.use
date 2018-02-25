@@ -296,5 +296,5 @@ end
 
 association weaponOfPlayer between
 Player[1]
-Weapon[1]
+Weapon[0..1]
 end
