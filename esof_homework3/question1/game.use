@@ -227,6 +227,7 @@ operations
     self.opponent.initInstance();
     self.weapon := new Weapon;
     self.weapon.power := 0;
+    self.weapon.type:=weaponType::sword
   end
   landBlow()
     begin
